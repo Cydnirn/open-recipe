@@ -9,10 +9,12 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@aws-amplify/adapter-nextjs": "^1.1.8",
     "aws-amplify": "^6.3.2",
     "next": "14.2.3",
     "react": "^18",
-    "react-dom": "^18"
+    "react-dom": "^18",
+    "xendit-node": "^5.0.0"
   },
   "devDependencies": {
     "@aws-amplify/backend": "^1.0.2",
