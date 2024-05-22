@@ -2,14 +2,13 @@ import { Amplify } from "aws-amplify";
 import outputs from "../amplify_outputs.json";
 
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { font } from "./fonts";
 import "./globals.css";
-
-const inter = Inter({ subsets: ["latin"] });
+import "@aws-amplify/ui-react/styles.css";
 
 export const metadata: Metadata = {
-    title: "Suruh Santo",
-    description: "Aplikasi untuk Menyuruh Santo",
+    title: "Open Recipe",
+    description: "Create And Share Recipe",
 };
 
 export default function RootLayout({
@@ -19,7 +18,7 @@ export default function RootLayout({
 }>) {
     return (
         <html lang='en'>
-            <body className={inter.className}>{children}</body>
+            <body className={font.Rale.className}>{children}</body>
         </html>
     );
 }
