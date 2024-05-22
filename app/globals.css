@@ -40,3 +40,17 @@ body {
 .primary-button:hover {
     background-color: #ac412e;
 }
+
+.amplify-collection-pagination {
+    margin: 0 auto;
+}
+
+.amplify-collection-search{
+    display: flex;
+    justify-content: center;
+}
+
+.amplify-collection-items{
+    display: flex;
+    justify-content: center;
+}
