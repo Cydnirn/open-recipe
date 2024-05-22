@@ -23,9 +23,7 @@ export default function RootLayout({
     return (
         <html lang='en'>
             <body className={font.Rale.className}>
-                <Navbar />
                 {children}
-                <Appbar />
             </body>
         </html>
     );
