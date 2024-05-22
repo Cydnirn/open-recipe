@@ -1,14 +1,12 @@
-import { Metadata } from "next"
+import { Metadata } from "next";
 
-export const metadata:Metadata = {
+export const metadata: Metadata = {
     title: "Login",
-    description: "Login or Sign Up"
-}
+    description: "Login or Sign Up",
+};
 
-export default function LoginLayout({children,}:Readonly<{children:React.ReactNode}>){
-    return (
-        <div>
-            {children}
-        </div>
-    )
+export default function LoginLayout({
+    children,
+}: Readonly<{ children: React.ReactNode }>) {
+    return <>{children}</>;
 }

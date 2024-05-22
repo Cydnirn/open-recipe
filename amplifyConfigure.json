@@ -1,0 +1,213 @@
+{
+    "auth": {
+      "user_pool_id": "ap-southeast-1_i5PbpV5x5",
+      "aws_region": "ap-southeast-1",
+      "user_pool_client_id": "v9veqa5ngjn0gbs2l4ienakc3",
+      "identity_pool_id": "ap-southeast-1:0deb04f3-91de-4ae1-a69f-863a649cdeb0",
+      "standard_required_attributes": [
+        "email"
+      ],
+      "username_attributes": [
+        "email"
+      ],
+      "user_verification_types": [
+        "email"
+      ],
+      "password_policy": {
+        "min_length": 8,
+        "require_numbers": true,
+        "require_lowercase": true,
+        "require_uppercase": true,
+        "require_symbols": true
+      },
+      "unauthenticated_identities_enabled": true
+    },
+    "data": {
+      "url": "https://43ms7mz44rglheqblt32cntosi.appsync-api.ap-southeast-1.amazonaws.com/graphql",
+      "aws_region": "ap-southeast-1",
+      "default_authorization_type": "AWS_IAM",
+      "authorization_types": [
+        "AMAZON_COGNITO_USER_POOLS"
+      ],
+      "model_introspection": {
+        "version": 1,
+        "models": {
+          "Todo": {
+            "name": "Todo",
+            "fields": {
+              "id": {
+                "name": "id",
+                "isArray": false,
+                "type": "ID",
+                "isRequired": true,
+                "attributes": []
+              },
+              "content": {
+                "name": "content",
+                "isArray": false,
+                "type": "String",
+                "isRequired": false,
+                "attributes": []
+              },
+              "createdAt": {
+                "name": "createdAt",
+                "isArray": false,
+                "type": "AWSDateTime",
+                "isRequired": false,
+                "attributes": [],
+                "isReadOnly": true
+              },
+              "updatedAt": {
+                "name": "updatedAt",
+                "isArray": false,
+                "type": "AWSDateTime",
+                "isRequired": false,
+                "attributes": [],
+                "isReadOnly": true
+              }
+            },
+            "syncable": true,
+            "pluralName": "Todos",
+            "attributes": [
+              {
+                "type": "model",
+                "properties": {}
+              },
+              {
+                "type": "auth",
+                "properties": {
+                  "rules": [
+                    {
+                      "allow": "public",
+                      "provider": "iam",
+                      "operations": [
+                        "create",
+                        "update",
+                        "delete",
+                        "read"
+                      ]
+                    },
+                    {
+                      "allow": "private",
+                      "operations": [
+                        "get"
+                      ]
+                    }
+                  ]
+                }
+              }
+            ],
+            "primaryKeyInfo": {
+              "isCustomPrimaryKey": false,
+              "primaryKeyFieldName": "id",
+              "sortKeyFieldNames": []
+            }
+          },
+          "Recipe": {
+            "name": "Recipe",
+            "fields": {
+              "id": {
+                "name": "id",
+                "isArray": false,
+                "type": "ID",
+                "isRequired": true,
+                "attributes": []
+              },
+              "title": {
+                "name": "title",
+                "isArray": false,
+                "type": "String",
+                "isRequired": false,
+                "attributes": []
+              },
+              "ingredients": {
+                "name": "ingredients",
+                "isArray": true,
+                "type": "String",
+                "isRequired": false,
+                "attributes": [],
+                "isArrayNullable": true
+              },
+              "instructions": {
+                "name": "instructions",
+                "isArray": false,
+                "type": "String",
+                "isRequired": false,
+                "attributes": []
+              },
+              "createdAt": {
+                "name": "createdAt",
+                "isArray": false,
+                "type": "AWSDateTime",
+                "isRequired": false,
+                "attributes": [],
+                "isReadOnly": true
+              },
+              "updatedAt": {
+                "name": "updatedAt",
+                "isArray": false,
+                "type": "AWSDateTime",
+                "isRequired": false,
+                "attributes": [],
+                "isReadOnly": true
+              }
+            },
+            "syncable": true,
+            "pluralName": "Recipes",
+            "attributes": [
+              {
+                "type": "model",
+                "properties": {}
+              },
+              {
+                "type": "auth",
+                "properties": {
+                  "rules": [
+                    {
+                      "allow": "public",
+                      "provider": "iam",
+                      "operations": [
+                        "read"
+                      ]
+                    },
+                    {
+                      "allow": "private",
+                      "operations": [
+                        "create",
+                        "update",
+                        "delete"
+                      ]
+                    },
+                    {
+                      "provider": "userPools",
+                      "ownerField": "owner",
+                      "allow": "owner",
+                      "identityClaim": "cognito:username",
+                      "operations": [
+                        "create",
+                        "update",
+                        "delete",
+                        "read"
+                      ]
+                    }
+                  ]
+                }
+              }
+            ],
+            "primaryKeyInfo": {
+              "isCustomPrimaryKey": false,
+              "primaryKeyFieldName": "id",
+              "sortKeyFieldNames": []
+            }
+          }
+        },
+        "enums": {},
+        "nonModels": {}
+      }
+    },
+    "storage": {
+      "aws_region": "ap-southeast-1",
+      "bucket_name": "amplify-suruhsanto-rei-san-questdatabucket3d5bd927-jkkxe1iu9rsa"
+    },
+    "version": "1"
+  }

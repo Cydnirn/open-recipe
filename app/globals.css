@@ -41,16 +41,28 @@ body {
     background-color: #ac412e;
 }
 
+.amplify-button--primary {
+    background-color: #ff6347;
+}
+
+.amplify-button--primary:hover {
+    background-color: #ac412e;
+}
+
 .amplify-collection-pagination {
     margin: 0 auto;
 }
 
-.amplify-collection-search{
+.amplify-collection-search {
     display: flex;
     justify-content: center;
 }
 
-.amplify-collection-items{
+.amplify-collection-items {
     display: flex;
     justify-content: center;
+}
+
+[data-amplify-authenticator] {
+    --amplify-components-button-primary-background-color: #ff6347;
 }
