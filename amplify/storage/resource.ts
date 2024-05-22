@@ -7,7 +7,7 @@ export const storage = defineStorage({
             allow.guest.to(["read"]),
             allow.entity("identity").to(["read", "write", "delete"]),
         ],
-        "order-pictures/{order_id}": [
+        "order-pictures/{order_id}/*": [
             allow.guest.to(["read"]),
             allow.entity("identity").to(["read", "write", "delete"]),
         ],

@@ -22,7 +22,7 @@ const schema = a.schema({
             instructions: a.string(),
         })
         .authorization((allow) => [
-            allow.publicApiKey().to(["read"]),
+            allow.guest().to(["read"]),
             allow.authenticated().to(["create", "update", "delete"]),
             allow.owner(),
         ]),
