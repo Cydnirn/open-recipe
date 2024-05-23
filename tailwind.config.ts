@@ -18,6 +18,7 @@ const config: Config = {
                 primary: "#FF6347",
                 secondary: "#32CD32",
                 complement: "#FFA500",
+                content: "#f8f9fa"
             },
         },
     },

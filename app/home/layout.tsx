@@ -16,7 +16,7 @@ export default function HomeLayout({
   return (
     <main>
       <Navbar />
-      <div className="h-20" />
+      <div className="h-12" />
       {children}
       <Appbar />
     </main>
