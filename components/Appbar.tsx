@@ -5,14 +5,10 @@ import {
   IconDefinition,
   faBook,
   faFeatherPointed,
-  faUser,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import AmplifyComp from "./Amplify";
-import { useEffect, useState } from "react";
-import { AuthUser, getCurrentUser } from "aws-amplify/auth";
 
 function AppbarIcon(props: {
   icon: IconDefinition;
@@ -33,21 +29,8 @@ function AppbarIcon(props: {
 
 export default function Appbar() {
   const path = usePathname();
-  const [user, setUser] = useState<AuthUser>();
-  useEffect(() => {
-    const fetchUser = async () => {
-      try {
-        const userData = await getCurrentUser();
-        setUser(userData);
-      } catch (err) {
-        console.error("Error fetching user");
-      }
-    };
-    fetchUser();
-  }, [getCurrentUser]);
   return (
     <div className="max-w-1/4 fixed bottom-5 left-1/2 flex h-fit min-h-12 w-fit -translate-x-1/2 transform items-center justify-center rounded-lg border border-black bg-default px-5 text-[25px] text-black">
-      <AmplifyComp />
       <Flex
         gap={15}
         alignItems={"center"}
@@ -64,15 +47,6 @@ export default function Appbar() {
             icon={faFeatherPointed}
           />
         </Link>
-        {user && (
-          <Link href={`/home/user/${user.userId}`}>
-            <AppbarIcon
-              path={`/home/user/${user.userId}`}
-              curPath={path}
-              icon={faUser}
-            />
-          </Link>
-        )}
       </Flex>
     </div>
   );
