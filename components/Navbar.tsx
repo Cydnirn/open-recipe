@@ -23,7 +23,7 @@ export default function Navbar() {
   }, [getCurrentUser]);
 
   return (
-    <nav className="fixed top-0 z-10 flex h-5 w-screen transform items-center justify-end border-b bg-default px-5 py-5">
+    <nav className="fixed top-0 z-10 flex h-5 w-screen transform items-center justify-end border-2 border-b border-slate-300 bg-default px-5 py-5">
       <AmplifyComp />
       {user ? (
         <h1 className="cursor-pointer">Hello {user.signInDetails?.loginId}</h1>
