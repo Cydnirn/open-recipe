@@ -46,6 +46,7 @@ export default function Navbar() {
             onClick={() => router.push("/login")}
             className="primary-button"
             variation="primary"
+            size="small"
           >
             Sign In
           </Button>
