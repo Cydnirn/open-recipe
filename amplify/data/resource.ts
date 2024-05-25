@@ -7,34 +7,27 @@ specifies that any unauthenticated user can "create", "read", "update",
 and "delete" any "Todo" records.
 =========================================================================*/
 const schema = a.schema({
-    Todo: a
-        .model({
-            content: a.string(),
-        })
-        .authorization((allow) => [
-            allow.guest(),
-            allow.authenticated().to(["get"]),
-        ]),
-    Recipe: a
-        .model({
-            title: a.string(),
-            ingredients: a.string().array(),
-            instructions: a.string(),
-        })
-        .authorization((allow) => [
-            allow.guest().to(["read"]),
-            allow.authenticated().to(["create", "update", "delete"]),
-            allow.owner(),
-        ]),
+  Recipe: a
+    .model({
+      title: a.string(),
+      ingredients: a.string().array(),
+      description: a.string(),
+      instructions: a.string().array(),
+    })
+    .authorization((allow) => [
+      allow.guest().to(["read"]),
+      allow.authenticated().to(["create", "update", "delete"]),
+      allow.owner(),
+    ]),
 });
 
 export type Schema = ClientSchema<typeof schema>;
 
 export const data = defineData({
-    schema,
-    authorizationModes: {
-        defaultAuthorizationMode: "iam",
-    },
+  schema,
+  authorizationModes: {
+    defaultAuthorizationMode: "iam",
+  },
 });
 
 /*== STEP 2 ===============================================================

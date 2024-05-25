@@ -23,7 +23,7 @@ export default function NewRecipeForm() {
   return (
     <AmplifyComp>
       <div className="flex w-full flex-col justify-between gap-5 md:flex-row">
-        <div className="w-1/2">
+        <div className="w-1/2 h-full">
           <StorageManager
             acceptedFileTypes={["images/*"]}
             path={"recipes/images/"}
