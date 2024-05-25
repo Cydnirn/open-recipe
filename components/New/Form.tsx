@@ -11,17 +11,18 @@ const fileProcess = async ({ file }: { file: File }, id: string) => {
   return { file, key: `${id}.${ext}` };
 };
 
-const Ingredients = ["Tomato", "Carrot", "Chicken"];
+const IngredientsPlaceholder = ["Tomato", "Carrot", "Chicken"];
 
 export default function NewRecipeForm() {
   const [id, setId] = useState("");
   const [newIngredients, setNewIngredients] = useState(false);
+  const [ingredients, setIngredients] = useState<string[]>([]);
   useEffect(() => {
     setId(v4());
   }, []);
   return (
     <AmplifyComp>
-      <div className="flex w-full justify-between gap-5">
+      <div className="flex w-full flex-col justify-between gap-5 md:flex-row">
         <div className="w-1/2">
           <StorageManager
             acceptedFileTypes={["images/*"]}
@@ -42,9 +43,26 @@ export default function NewRecipeForm() {
             <h1 className="mx-auto text-2xl font-bold">Recipe Data</h1>
             <Input placeholder="Your Recipe Name" />
             <p className="font-semibold">Ingredients</p>
+            {!ingredients.length && !newIngredients && (
+              <p className="text-xs font-thin">No Ingredients Added yet</p>
+            )}
+            {ingredients.map((ing) => (
+              <p key={ing}>{ing}</p>
+            ))}
             {newIngredients && (
               <Input
-                placeholder={`${Ingredients[Math.floor(Math.random() * Ingredients.length)]}`}
+                onKeyDown={(e) => {
+                  if (e.key === "Enter") {
+                    setIngredients(
+                      Array.from(
+                        new Set([...ingredients, e.currentTarget.value]),
+                      ),
+                    );
+                    e.currentTarget.value = "";
+                    setNewIngredients(false);
+                  }
+                }}
+                placeholder={`${IngredientsPlaceholder[Math.floor(Math.random() * IngredientsPlaceholder.length)]}`}
               />
             )}
             <Button
