@@ -14,7 +14,6 @@ export default function Navbar() {
     const fetchUser = async () => {
       try {
         const userData = await getCurrentUser();
-        console.log(userData);
         setUser(userData);
       } catch (err) {
         console.error("Error fetching user");
