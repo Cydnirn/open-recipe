@@ -4,7 +4,7 @@ import Navbar from "@/components/Navbar";
 import Appbar from "@/components/Appbar";
 
 export const metadata: Metadata = {
-  title: "Open Recipe",
+  title: "Recepify",
   description: "Create And Share Recipe",
 };
 

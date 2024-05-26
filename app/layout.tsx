@@ -10,7 +10,7 @@ import AmplifyComp from "@/components/Amplify";
 Amplify.configure(outputs, { ssr: true });
 
 export const metadata: Metadata = {
-    title: "Open Recipe",
+    title: "Recepify",
     description: "Create And Share Recipe",
 };
 
