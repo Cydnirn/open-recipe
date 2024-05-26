@@ -1,7 +1,12 @@
 "use client";
 
 import { Button } from "@aws-amplify/ui-react";
-import { AuthUser, getCurrentUser } from "aws-amplify/auth";
+import {
+  AuthUser,
+  getCurrentUser,
+  fetchUserAttributes,
+  FetchUserAttributesOutput,
+} from "aws-amplify/auth";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import AmplifyComp from "./Amplify";
@@ -9,11 +14,11 @@ import Link from "next/link";
 
 export default function Navbar() {
   const router = useRouter();
-  const [user, setUser] = useState<AuthUser>();
+  const [user, setUser] = useState<FetchUserAttributesOutput>();
   useEffect(() => {
     const fetchUser = async () => {
       try {
-        const userData = await getCurrentUser();
+        const userData = await fetchUserAttributes();
         setUser(userData);
       } catch (err) {
         console.error("Error fetching user");
@@ -36,9 +41,7 @@ export default function Navbar() {
                 Create Recipe
               </Button>
             </Link>
-            <h1 className="cursor-pointer">
-              Hello {user.signInDetails?.loginId}
-            </h1>
+            <h1 className="cursor-pointer">Hello {user.preferred_username}</h1>
           </div>
         ) : (
           <Button
