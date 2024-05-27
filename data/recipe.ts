@@ -1,11 +1,3 @@
-export interface IRecipe {
-    id: string;
-    name: string;
-    ingredients: string[];
-    createdBy: string;
-    description: string;
-    picture: string;
-}
 
 const Recipe = [
     {
@@ -22,7 +14,7 @@ const Recipe = [
         ingredients: ["Dough", "Sauce", "Cheese"],
         createdBy: "Owner2",
 
-        description: "This is a normal pizza lorem dolor ipsum sit amet",
+        description: "This is a normal pizza Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Felis eget nunc lobortis mattis aliquam faucibus. Pulvinar etiam non quam lacus suspendisse faucibus interdum posuere lorem. Risus viverra adipiscing at in tellus integer. Odio euismod lacinia at quis. Vitae congue eu consequat ac felis donec et odio. Morbi leo urna molestie at elementum eu facilisis. Hac habitasse platea dictumst vestibulum rhoncus est pellentesque elit ullamcorper. Pulvinar proin gravida hendrerit lectus a. Quam id leo in vitae turpis massa sed. Dui vivamus arcu felis bibendum ut tristique et. Gravida quis blandit turpis cursus in hac habitasse platea dictumst. Tortor dignissim convallis aenean et tortor at risus viverra. Mauris nunc congue nisi vitae suscipit tellus mauris. Ac turpis egestas sed tempus. Ac orci phasellus egestas tellus rutrum tellus pellentesque eu. Tristique senectus et netus et malesuada. Erat velit scelerisque in dictum non consectetur a erat.",
         picture: "https://images.unsplash.com/photo-1594007654729-407eedc4be65",
     },
     {

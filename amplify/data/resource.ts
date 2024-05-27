@@ -9,14 +9,19 @@ and "delete" any "Todo" records.
 const schema = a.schema({
   Recipe: a
     .model({
-      title: a.string(),
+      id: a.string().required(),
+      title: a.string().required(),
+      picture: a.string(),
+      state: a.enum(["draft", "published", "private"]),
       ingredients: a.string().array(),
-      description: a.string(),
+      description: a.string().required(),
       instructions: a.string().array(),
+      createdBy: a.string().required(),
     })
     .authorization((allow) => [
       allow.guest().to(["read"]),
-      allow.authenticated().to(["create", "update", "delete"]),
+      allow.authenticated(),
+      allow.authenticated("identityPool"),
       allow.owner(),
     ]),
 });
@@ -26,7 +31,7 @@ export type Schema = ClientSchema<typeof schema>;
 export const data = defineData({
   schema,
   authorizationModes: {
-    defaultAuthorizationMode: "iam",
+    defaultAuthorizationMode: "identityPool",
   },
 });
 

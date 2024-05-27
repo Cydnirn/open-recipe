@@ -3,7 +3,7 @@ import Link from "next/link";
 
 export default function NewRecipe() {
   return (
-    <main>
+    <main className="h-fit">
       <div className="mt-5 flex flex-col gap-5">
         <div className="flex items-center justify-between">
           <h1 className=" text-2xl font-semibold">Create New Recipe</h1>

@@ -41,6 +41,10 @@ body {
     background-color: #ac412e;
 }
 
+.amplify-storagemanager{
+    height: auto;
+}
+
 .amplify-button--primary {
     background-color: #ff6347;
 }
