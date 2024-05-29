@@ -11,7 +11,6 @@ import {
 } from "@aws-amplify/ui-react";
 import { StorageImage } from "@aws-amplify/ui-react-storage";
 import { generateClient } from "aws-amplify/api";
-import { getCurrentUser } from "aws-amplify/auth";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 
@@ -21,12 +20,11 @@ export default function HomePage() {
   const [Recipes, setRecipes] = useState<Schema["Recipe"]["type"][]>();
 
   const fetchRecipes = async () => {
-    const currentUser = await getCurrentUser();
-    console.log(currentUser);
     const { data } = await client.models.Recipe.list({
-      //filter: { owner: { eq: currentUser.username } },
+      filter: {
+        //owner: { eq: `${currentUser.username}::${currentUser.userId}` },
+      },
     });
-    console.log(data);
     setRecipes(data);
   };
 

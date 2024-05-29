@@ -13,9 +13,9 @@ const schema = a.schema({
       title: a.string().required(),
       picture: a.string(),
       state: a.enum(["draft", "published", "private"]),
-      ingredients: a.string().array(),
+      ingredients: a.string().required().array(),
       description: a.string().required(),
-      instructions: a.string().array(),
+      instructions: a.string().required().array(),
       createdBy: a.string().required(),
     })
     .authorization((allow) => [
